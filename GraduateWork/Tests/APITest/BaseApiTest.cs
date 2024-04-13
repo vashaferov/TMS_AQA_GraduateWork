@@ -1,9 +1,11 @@
 using GraduateWork.Clients;
 using GraduateWork.Service;
 using NLog;
+using NUnit.Allure.Core;
 
 namespace GraduateWork.Tests;
 
+[AllureNUnit]
 public class BaseApiTest
 {
     private readonly Logger _logger = LogManager.GetCurrentClassLogger();
