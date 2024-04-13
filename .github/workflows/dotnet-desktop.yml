@@ -8,11 +8,11 @@ on:
 
 jobs:
 
-  build:
+  test:
 
     strategy:
       matrix:
-        configuration: [Debug, Release]
+        configuration: [Debug]
 
     runs-on: ubuntu-latest 
     steps:
@@ -41,7 +41,7 @@ jobs:
       with:
          gh_pages: gh-pages
          allure_history: allure-history
-         allure_results: TestRailComplexApi/bin/Debug/net8.0/allure-results
+         allure_results: GraduateWork/bin/Debug/net8.0/allure-results
 
     - name: Publish test report
       uses: peaceiris/actions-gh-pages@v3
