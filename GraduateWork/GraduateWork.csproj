@@ -33,10 +33,4 @@
       </Content>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Models\" />
-      <Folder Include="Service\" />
-      <Folder Include="Tests\" />
-    </ItemGroup>
-
 </Project>

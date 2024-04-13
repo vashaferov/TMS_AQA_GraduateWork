@@ -41,6 +41,7 @@ public class Configurator
             appSettings.API_URL = child["API_URL"];
             appSettings.Username = child["Username"];
             appSettings.Password = child["Password"];
+            appSettings.ApiKey = child["ApiKey"];
 
             return appSettings;
         }
