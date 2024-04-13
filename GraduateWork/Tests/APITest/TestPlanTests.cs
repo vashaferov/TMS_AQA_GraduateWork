@@ -1,7 +1,6 @@
 using System.Net;
 using GraduateWork.Models;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using NLog;
 
 namespace GraduateWork.Tests;
@@ -22,9 +21,9 @@ public class TestPlanTests : BaseApiTest
         };
 
         var actualProject = ProjectService!.AddProject(_project);
-        
+
         Assert.That(actualProject.Result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-        
+
         _project = JsonConvert.DeserializeObject<Project>(actualProject.Result.Content);
     }
 
@@ -42,7 +41,7 @@ public class TestPlanTests : BaseApiTest
         };
 
         var createTestPlan = TestPlaneServices!.AddTestPlan(_testPlan);
-        
+
         Assert.Multiple(() =>
         {
             Assert.That(createTestPlan.Result.Title, Is.EqualTo(_testPlan.Title));
@@ -56,7 +55,7 @@ public class TestPlanTests : BaseApiTest
         });
 
         _testPlan = createTestPlan.Result;
-        
+
         _logger.Info("CreateTestPlaneApiTest выполнен.");
     }
 
@@ -67,16 +66,16 @@ public class TestPlanTests : BaseApiTest
         _logger.Info("GetTestPlaneApiTest запущен.");
 
         var getTesstPlan = TestPlaneServices!.GetTestPlan(_testPlan.Id);
-        
+
         Assert.Multiple(() =>
         {
             Assert.That(getTesstPlan.Result.Title, Is.EqualTo(_testPlan.Title));
             _logger.Info($"Title равен: {getTesstPlan.Result.Title}");
-            
+
             Assert.That(getTesstPlan.Result.Id, !Is.EqualTo(null));
             _logger.Info($"Id равен: {getTesstPlan.Result.Id}");
         });
-        
+
         _logger.Info("GetTestPlaneApiTest выполнен.");
     }
 
@@ -88,10 +87,10 @@ public class TestPlanTests : BaseApiTest
 
         var deleteTestPlan = TestPlaneServices!.DeleteTestPlan(_testPlan.Id);
         Assert.That(deleteTestPlan, Is.EqualTo(HttpStatusCode.OK));
-        
+
         _logger.Info("DeleteTestPlaneApiTest выполнен.");
     }
-    
+
     [Test]
     [Order(4), Category("AFE")]
     public void GetTestPlaneInvalidIdApiTest()
@@ -99,9 +98,9 @@ public class TestPlanTests : BaseApiTest
         _logger.Info("GetTestPlaneInvalidIdApiTest запущен.");
 
         var getTestPlan = TestPlaneServices!.GetTestPlan(-1);
-        
+
         Assert.That(getTestPlan.Result.Message, Is.EqualTo("The entity with id -1 was not found."));
-        
+
         _logger.Info("GetTestPlaneInvalidIdApiTest выполнен.");
     }
 

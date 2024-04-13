@@ -9,6 +9,7 @@ public class BaseApiTest
     private readonly Logger _logger = LogManager.GetCurrentClassLogger();
     protected ProjectServices? ProjectService;
     protected TestPlaneServices? TestPlaneServices;
+    protected AuthenticationServices? AuthenticationServices;
 
     [OneTimeSetUp]
     public void SetUpApi()
@@ -16,6 +17,7 @@ public class BaseApiTest
         var restClient = new RestClientExtended();
         ProjectService = new ProjectServices(restClient);
         TestPlaneServices = new TestPlaneServices(restClient);
+        AuthenticationServices = new AuthenticationServices(restClient);
     }
 
     [OneTimeTearDown]

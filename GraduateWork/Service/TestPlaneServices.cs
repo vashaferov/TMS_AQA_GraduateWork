@@ -8,7 +8,7 @@ namespace GraduateWork.Service;
 public class TestPlaneServices : ITestPlaneServices
 {
     private readonly RestClientExtended _client;
-    
+
     public TestPlaneServices(RestClientExtended client)
     {
         _client = client;
@@ -35,7 +35,7 @@ public class TestPlaneServices : ITestPlaneServices
         var request = new RestRequest("api/v1/testplan/{testPlanId}", Method.Put)
             .AddUrlSegment("testPlanId", testPlan.Id)
             .AddJsonBody(testPlan);
-        
+
         return _client.ExecuteAsync(request);
     }
 
