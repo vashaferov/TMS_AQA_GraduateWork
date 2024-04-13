@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using NLog;
 
 namespace GraduateWork.Tests;
-
+[Category("CRUD")]
 public class ProjectTests : BaseApiTest
 {
     private readonly Logger _logger = LogManager.GetCurrentClassLogger();
@@ -18,14 +18,14 @@ public class ProjectTests : BaseApiTest
     {
         _logger.Info("CreateProjectApiTest запущен.");
 
-        _project = new Project()
+        Project projectNew = new Project()
         {
             Name = $"Test {DateTime.Now}",
             Description = "Test Description",
             Etag = "test"
         };
 
-        var actualProject = ProjectService!.AddProject(_project);
+        var actualProject = ProjectService!.AddProject(projectNew);
         
         Assert.That(actualProject.Result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
         
@@ -33,11 +33,11 @@ public class ProjectTests : BaseApiTest
         
         Assert.Multiple(() =>
         {
-            Assert.That(_project.Name, Is.EqualTo(_project.Name));
-            _logger.Info($"Name совпал с ожидаемым и равен: {_project.Name}");
+            Assert.That(_project.Name, Is.EqualTo(projectNew.Name));
+            _logger.Info($"Name равен: {_project.Name}");
 
-            Assert.That(_project.Description, Is.EqualTo(_project.Description));
-            _logger.Info($"Description совпал с ожидаемым и равен: {_project.Description}");
+            Assert.That(_project.Description, Is.EqualTo(projectNew.Description));
+            _logger.Info($"Description равен: {projectNew.Description}");
 
             Assert.That(_project.Id, !Is.EqualTo(null));
             _logger.Info($"Id равен: {_project.Id}");
@@ -47,7 +47,7 @@ public class ProjectTests : BaseApiTest
     }
     
     [Test]
-    [Order(2)]
+    [Order(2), Category("NFE")]
     public void GetProjectApiTest()
     {
         _logger.Info("GetProjectApiTest запущен.");
@@ -57,10 +57,10 @@ public class ProjectTests : BaseApiTest
         Assert.Multiple(() =>
         {
             Assert.That(getProject.Result.Name, Is.EqualTo(_project.Name));
-            _logger.Info($"Name совпал с ожидаемым и равен: {getProject.Result.Name}");
+            _logger.Info($"Name равен: {getProject.Result.Name}");
     
             Assert.That(getProject.Result.Description, Is.EqualTo(_project.Description));
-            _logger.Info($"Description совпал с ожидаемым и равен: {getProject.Result.Description}");
+            _logger.Info($"Description равен: {getProject.Result.Description}");
     
             Assert.That(getProject.Result.Id, Is.EqualTo(_project.Id));
             _logger.Info($"Id равен: {getProject.Result.Id}");
@@ -89,7 +89,7 @@ public class ProjectTests : BaseApiTest
         _project = JsonConvert.DeserializeObject<Project>(updateProject.Result.Content);
         
         Assert.That(_project.Name, Is.EqualTo(name));
-        _logger.Info($"Name совпал с ожидаемым и равен: {_project.Name}");
+        _logger.Info($"Name равен: {_project.Name}");
         
         _logger.Info("UpdateProjectApiTest выполнен.");
     }
@@ -105,5 +105,18 @@ public class ProjectTests : BaseApiTest
         Assert.That(deleteProject, Is.EqualTo(HttpStatusCode.OK));
         
         _logger.Info("DeleteProjectApiTest выполнен.");
+    }
+    
+    [Test]
+    [Category("AFE")]
+    public void GetProjectInvalidIdApiTest()
+    {
+        _logger.Info("GetProjectApiTest запущен.");
+        
+        var getProject = ProjectService!.GetProject(-1);
+        
+        Assert.That(getProject.Result.Message, Is.EqualTo("The entity with id -1 was not found."));
+
+        _logger.Info("GetProjectApiTest выполнен.");
     }
 }
