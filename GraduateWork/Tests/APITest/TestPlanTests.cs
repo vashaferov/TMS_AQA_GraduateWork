@@ -2,9 +2,11 @@ using System.Net;
 using GraduateWork.Models;
 using Newtonsoft.Json;
 using NLog;
+using NUnit.Allure.Attributes;
 
 namespace GraduateWork.Tests;
 
+[AllureSuite("API TestPlan Tests")]
 public class TestPlanTests : BaseApiTest
 {
     private readonly Logger _logger = LogManager.GetCurrentClassLogger();
@@ -12,6 +14,7 @@ public class TestPlanTests : BaseApiTest
     private TestPlan _testPlan;
 
     [OneTimeSetUp]
+    [AllureBefore]
     public void CreateProject()
     {
         _project = new Project()
@@ -105,6 +108,7 @@ public class TestPlanTests : BaseApiTest
     }
 
     [OneTimeTearDown]
+    [AllureAfter]
     public void DeleteProject()
     {
         Assert.That(ProjectService!.DeleteProject(_project.Id), Is.EqualTo(HttpStatusCode.OK));

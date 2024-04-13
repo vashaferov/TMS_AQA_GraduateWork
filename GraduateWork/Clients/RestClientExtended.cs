@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using Allure.Net.Commons;
 using GraduateWork.Helpers.API;
 using NLog;
 using RestSharp;
@@ -26,6 +27,7 @@ public class RestClientExtended
 
     private void LogRequest(RestRequest request)
     {
+        AllureApi.Step($"{request.Method} запрос: {request.Resource}");
         _logger.Debug($"{request.Method} запрос: {request.Resource}");
 
         var body = request.Parameters
@@ -33,6 +35,7 @@ public class RestClientExtended
 
         if (body != null)
         {
+            AllureApi.Step($"Тело запроса: \n{JsonSerializer.Serialize(body)}");
             _logger.Debug($"Тело запроса:\n{JsonSerializer.Serialize(body)}");
         }
     }
@@ -44,11 +47,13 @@ public class RestClientExtended
             _logger.Error(
                 $"Ошибка получения ответа:\n{response.ErrorException.Message}");
         }
-
+        
+        AllureApi.Step($"Запрос завершился с кодом: {response.StatusCode}");
         _logger.Debug($"Запрос завершился с кодом: {response.StatusCode}");
 
         if (!string.IsNullOrWhiteSpace(response.Content))
         {
+            AllureApi.Step($"Тело ответа: \n{response.Content}");
             _logger.Debug($"Тело ответа:\n{response.Content}");
         }
     }

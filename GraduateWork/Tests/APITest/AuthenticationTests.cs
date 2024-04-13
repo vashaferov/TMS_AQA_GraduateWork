@@ -1,11 +1,14 @@
 using System.Net;
+using Allure.Net.Commons;
 using GraduateWork.Helpers.API;
 using GraduateWork.Models;
 using Newtonsoft.Json;
 using NLog;
+using NUnit.Allure.Attributes;
 
 namespace GraduateWork.Tests;
 
+[AllureSuite("API Authentication Tests")]
 public class AuthenticationTests : BaseApiTest
 {
     private readonly Logger _logger = LogManager.GetCurrentClassLogger();
@@ -14,7 +17,7 @@ public class AuthenticationTests : BaseApiTest
     [Category("NFE")]
     public void GetAuthenticationInfoTest()
     {
-        _logger.Info("GetAuthenticationInfoTest запущен.");
+        AllureApi.Step("GetAuthenticationInfoTest запущен.");
         
         var authenticationInfo = AuthenticationServices!.GetAuthenticationInfo();
         
@@ -24,6 +27,6 @@ public class AuthenticationTests : BaseApiTest
         
         Assert.That(user.Email, Is.EqualTo(Configurator.AppSettings.Username));
         
-        _logger.Info("GetAuthenticationInfoTest выполнен.");
+        AllureApi.Step("GetAuthenticationInfoTest выполнен.");
     }
 }
