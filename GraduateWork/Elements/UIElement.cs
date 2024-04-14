@@ -34,6 +34,11 @@ public class UIElement : IWebElement
     {
         return _webElement.FindElement(by);
     }
+    
+    public UIElement FindUIElement(By by)
+    {
+        return new UIElement(_webDriver, FindElement(by));
+    }
 
     public ReadOnlyCollection<IWebElement> FindElements(By by)
     {
