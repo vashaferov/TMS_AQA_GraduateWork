@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.Configuration;
 
-namespace GraduateWork.Helpers.API;
+namespace GraduateWork.Helpers;
 
 public class Configurator
 {
