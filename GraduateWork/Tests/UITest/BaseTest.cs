@@ -16,6 +16,7 @@ public class BaseTest
     protected WaitsHelper WaitsHelper { get; private set; }
 
     protected LoginSteps LoginSteps;
+    protected DashboardSteps DashboardSteps;
 
     [SetUp]
     public void Setup()
@@ -24,6 +25,7 @@ public class BaseTest
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
         
         LoginSteps = new LoginSteps(Driver);
+        DashboardSteps = new DashboardSteps(Driver);
     }
     
     [TearDown]

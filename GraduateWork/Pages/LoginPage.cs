@@ -9,7 +9,7 @@ public class LoginPage : BasePage
 
     private static readonly By EmailInputBy = By.Id(":r0:");
     private static readonly By PasswordInputBy = By.Id(":r2:");
-    private static readonly By StayLoggedInCheckBoxBy = By.XPath("//*[@id='root']/div/div[1]/div[2]/form/div[3]/label/input/following-sibling::*[@role='img']");
+    private static readonly By StayLoggedInCheckBoxBy = By.XPath("//*[@class='sc-bbxCgr gvkwA']/following-sibling::*[@role='img']");
     private static readonly By ErrorMessageBy = By.XPath("//*[@class='sc-hiTDLB cAUxfP']/p[1]/span[1]");
     private static readonly By LogInButtonBy = By.ClassName("button-main");
     

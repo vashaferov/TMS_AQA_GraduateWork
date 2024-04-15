@@ -20,4 +20,5 @@ public class Button
     public string Trxt => _uiElement.Text;
     public void Submit() => _uiElement.Submit();
     public bool Displayed => _uiElement.Displayed;
+    public bool Until => _uiElement.Until;
 }

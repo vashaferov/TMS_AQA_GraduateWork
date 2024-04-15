@@ -34,7 +34,7 @@ public class UIElement : IWebElement
     {
         return _webElement.FindElement(by);
     }
-    
+
     public UIElement FindUIElement(By by)
     {
         return new UIElement(_webDriver, FindElement(by));
@@ -151,4 +151,6 @@ public class UIElement : IWebElement
     public Point Location => _webElement.Location;
     public Size Size => _webElement.Size;
     public bool Displayed => _webElement.Displayed;
+
+    public bool Until => _waitsHelper.WaitForElementInvisible(_webElement);
 }
