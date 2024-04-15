@@ -139,12 +139,7 @@ public class UIElement : IWebElement
         {
             if (_webElement.Text != null || _webElement.Text.Equals(""))
             {
-                if (GetAttribute("value").Equals(""))
-                {
-                    return GetAttribute("innerText");
-                }
-
-                return GetAttribute("value");
+                return GetAttribute("innerText");
             }
 
             return _webElement.Text;

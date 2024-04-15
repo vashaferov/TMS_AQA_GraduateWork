@@ -23,14 +23,9 @@ public class Checkbox
 
     public void SelectCheckBoxStatus(bool flag)
     {
-        bool trriger;
-
-        if (_uiElement.GetAttribute("href") == "#icon-checkbox-unchecked")
-            trriger = false;
-        else
-            trriger = true;
+        bool trigger = _uiElement.GetAttribute("href") != "#icon-checkbox-unchecked";
         
-        if (trriger != flag)
+        if ((_uiElement.GetAttribute("href") != "#icon-checkbox-unchecked") == flag)
             _uiElement.Click();
     }
 
