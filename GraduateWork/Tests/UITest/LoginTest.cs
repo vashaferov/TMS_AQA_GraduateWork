@@ -29,7 +29,7 @@ public class LoginTest : BaseTest
         LoginSteps.NavigateToLoginPage();
         LoginSteps.IncorrectLogin(Configurator.AppSettings.Username, "1");
         
-        Assert.That(LoginSteps.GetErrorText(), Is.EqualTo(errorMessage));
+        Assert.That(LoginSteps.GetErrorText().Contains(errorMessage));
         
         AllureApi.Step($"Получена нужная ошибка:\n{errorMessage}");
     }

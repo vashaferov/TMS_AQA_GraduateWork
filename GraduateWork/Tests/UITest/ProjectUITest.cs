@@ -7,8 +7,7 @@ namespace GraduateWork.Tests.UITest;
 [AllureSuite("UI Project Tests")]
 public class ProjectUITest : BaseTest
 {
-    string projectName = $"Project 1";
-    // string projectName = $"Project {DateTime.Now}";
+    string projectName = "Test name";
     
     [Test]
     [Order(1)]

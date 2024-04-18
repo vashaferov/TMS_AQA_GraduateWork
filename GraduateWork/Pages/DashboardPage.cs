@@ -9,7 +9,7 @@ public class DashboardPage : BasePage
     
     private static readonly By ProjectDropdownMenuButtonBy = By.ClassName("button-dropdown");
     private static readonly By ProjectDropdownMenuBy = By.XPath("//*[@id='portal-root']/descendant::ul");
-    private static readonly By ProjectNameInputBy = By.Id(":r8:");
+    private static readonly By ProjectNameInputBy = By.XPath("//*[@data-testid='textbox-name']");
     private static readonly By ProjectKeyInputBy = By.Id(":ra:");
     private static readonly By ProjectDescriptionInputBy = By.Id(":rc:");
     private static readonly By CreateButtonBy = By.XPath("//*[@data-testid='button-save-entity']");

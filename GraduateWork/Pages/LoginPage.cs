@@ -10,7 +10,7 @@ public class LoginPage : BasePage
     private static readonly By EmailInputBy = By.Id(":r0:");
     private static readonly By PasswordInputBy = By.Id(":r2:");
     private static readonly By StayLoggedInCheckBoxBy = By.XPath("//*[@class='sc-bbxCgr gvkwA']/following-sibling::*[@role='img']");
-    private static readonly By ErrorMessageBy = By.XPath("//*[@class='sc-hiTDLB cAUxfP']/p[1]/span[1]");
+    private static readonly By ErrorMessageBy = By.XPath("//*[@data-testid='text-login-error:login-error-invalid']");
     private static readonly By LogInButtonBy = By.ClassName("button-main");
     
     public LoginPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)

@@ -28,6 +28,9 @@ public class ProjectSteps : BaseStep
         DashboardPage.ProjectDropdownButtonMain.Click();
         DashboardPage.ProjectDropdownMenu.SelectText("Project settings");
 
+        if(SettingsPage.CloseButton.Displayed)
+            SettingsPage.CloseButton.Click();
+        
         SettingsPage.IsPageOpened();
         SettingsPage.ProjectTable
             .GetCell("name", name, "description")

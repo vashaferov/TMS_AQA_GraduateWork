@@ -12,6 +12,9 @@ public class SettingsPage : BasePage
     private static readonly By DeleteButtonBy =
         By.XPath(
             "//div[@data-testid='section-project_edit']/descendant::button[@data-testid='button-more_single:delete']");
+    private static readonly By CloseButtonBy =
+        By.XPath(
+            "//div[@data-testid='section-project_edit']/descendant::button[@data-testid='button-entity-close']");
 
     private static readonly By СonfirmDeleteButtonBy = By.XPath("//button[@data-testid='button-affirm']");
     private static readonly By LeftMenuButtonProjectBy = By.XPath("//li[@data-testid='item-projects']");
@@ -41,6 +44,7 @@ public class SettingsPage : BasePage
     public Button BackToDashboardButton => new Button(_driver, BackToDashboardButtonBy);
     public Button LeftMenuButtonProject => new Button(_driver, LeftMenuButtonProjectBy);
     public Button DeleteButton => new Button(_driver, DeleteButtonBy);
+    public Button CloseButton => new Button(_driver, CloseButtonBy);
     public Button СonfirmDeleteButton => new Button(_driver, СonfirmDeleteButtonBy);
     public Table ProjectTable => new Table(_driver, ProjectTableBy);
     public UIElement ProjectTableBody => new UIElement(_driver, ProjectTableBodyBy);
