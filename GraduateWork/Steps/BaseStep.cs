@@ -9,6 +9,7 @@ public class BaseStep
 
     public LoginPage LoginPage => new LoginPage(_driver);
     public DashboardPage DashboardPage => new DashboardPage(_driver);
+    public SettingsPage SettingsPage => new SettingsPage(_driver);
 
     public BaseStep(IWebDriver driver)
     {

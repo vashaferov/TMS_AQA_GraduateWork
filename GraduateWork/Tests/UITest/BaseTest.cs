@@ -7,7 +7,6 @@ using OpenQA.Selenium;
 
 namespace GraduateWork.Tests.UITest;
 
-[Parallelizable(scope: ParallelScope.All)]
 [FixtureLifeCycle(LifeCycle.InstancePerTestCase)]
 [AllureNUnit]
 public class BaseTest
@@ -16,7 +15,7 @@ public class BaseTest
     protected WaitsHelper WaitsHelper { get; private set; }
 
     protected LoginSteps LoginSteps;
-    protected DashboardSteps DashboardSteps;
+    protected ProjectSteps ProjectSteps;
 
     [SetUp]
     public void Setup()
@@ -25,7 +24,7 @@ public class BaseTest
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
         
         LoginSteps = new LoginSteps(Driver);
-        DashboardSteps = new DashboardSteps(Driver);
+        ProjectSteps = new ProjectSteps(Driver);
     }
     
     [TearDown]

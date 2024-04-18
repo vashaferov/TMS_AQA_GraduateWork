@@ -12,9 +12,10 @@ public class TableCell
 
     public TableCell(UIElement uiElement)
     {
-        _uiElement = _uiElement;
+        _uiElement = uiElement;
     }
 
     public UIElement GetLink() => _uiElement.FindUIElement(By.TagName("a"));
     public string Text => _uiElement.Text;
+    public void Click() => _uiElement.Click();
 }

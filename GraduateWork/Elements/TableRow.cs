@@ -21,5 +21,5 @@ public class TableRow
         }
     }
 
-    public TableCell GetCell(int  columnIndex) => _cells[columnIndex];
+    public TableCell GetCell(int columnIndex) => _cells[columnIndex];
 }

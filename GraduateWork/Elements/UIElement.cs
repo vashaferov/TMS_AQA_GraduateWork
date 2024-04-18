@@ -82,16 +82,16 @@ public class UIElement : IWebElement
         {
             try
             {
+                MoveToElement();
+                ((IJavaScriptExecutor)_webDriver).ExecuteScript("arguments[0].click();", _webElement);
+            }
+            catch (Exception)
+            {
                 _actions
                     .MoveToElement(_webElement)
                     .Click()
                     .Build()
                     .Perform();
-            }
-            catch (Exception)
-            {
-                MoveToElement();
-                ((IJavaScriptExecutor)_webDriver).ExecuteScript("arguments[0].click();", _webElement);
             }
         }
     }

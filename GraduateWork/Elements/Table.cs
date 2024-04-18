@@ -19,25 +19,25 @@ public class Table
         _uiElement = new UIElement(driver, by);
         _columns = new List<string>();
         _rows = new List<TableRow>();
-        WaitsHelper _waitsHelper = new WaitsHelper(driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
-            
+        WaitsHelper waitsHelper = new WaitsHelper(driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
+
         foreach (var columnElement in _uiElement.FindUIElements(By.TagName("th")))
         {
-            _columns.Add(columnElement.Text.Trim());
+            _columns.Add(columnElement.Text.ToLower());
         }
-
-        foreach (var rowElement in _uiElement.FindUIElements(By.XPath("//tr[@class!='header']")))
+        // waitsHelper.WaitForVisibility()
+        foreach (var rowElement in _uiElement.FindUIElements(By.XPath("//tr[@class!='table-header-row']")))
         {
             _rows.Add(new TableRow(rowElement));
         }
     }
-    
-    public TableCell GetCell(string targetColumn, string uniqueValue, string  columnName)
+
+    public TableCell GetCell(string targetColumn, string uniqueValue, string columnName)
     {
         return GetRow(targetColumn, uniqueValue).GetCell(_columns.IndexOf(columnName));
     }
-    
-    public TableCell GetCell(string targetColumn, string uniqueValue, int  columnIndex)
+
+    public TableCell GetCell(string targetColumn, string uniqueValue, int columnIndex)
     {
         return GetRow(targetColumn, uniqueValue).GetCell(columnIndex);
     }
@@ -46,10 +46,12 @@ public class Table
     {
         foreach (var row in _rows)
         {
-            if (row.GetCell(_columns.IndexOf(targetColumn)).Text.Equals(uniqueValue))
+            if (row.GetCell(_columns.IndexOf(targetColumn)).Text.Trim().Equals(uniqueValue))
                 return row;
         }
-        
+
         return null;
     }
+
+    public bool Displayed => _uiElement.Displayed;
 }
