@@ -89,4 +89,26 @@ public class ProjectUITest : BaseTest
         });
         AllureApi.Step("При вводе 39 знаков ожидаемо не получена ошибка\nКнопка \"Create\" активна");
     }
+    
+    [Test]
+    [Order(4)]
+    [AllureName("Недопустимые данные в ключе проекта")]
+    [AllureDescription("Тест на ввод данных превышающих допустимые")]
+    public void InvalidDataTest()
+    {
+        LoginSteps.NavigateToLoginPage();
+        LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+
+        DashboardSteps
+            .NavigateToCreateNewProject()
+            .ProjectKeyInput.SendKeys("тест");
+        
+        Assert.Multiple(() =>
+        {
+            Assert.That(DashboardSteps.DashboardPage.LimitValuesErrorMessage.Text.Trim(),
+                Is.EqualTo("The input value is not valid (must contain only letters and numbers)."));
+            Assert.That(DashboardSteps.DashboardPage.CreateButton.GetAttribute("disabled") != null);
+        });
+        AllureApi.Step("При вводе кириллицы ожидаемо получена ошибка\nКнопка \"Create\" неактивна");
+    }
 }

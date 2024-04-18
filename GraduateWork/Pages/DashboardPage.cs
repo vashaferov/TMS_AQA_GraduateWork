@@ -11,8 +11,8 @@ public class DashboardPage : BasePage
     private static readonly By ProjectDropdownMenuBy = By.XPath("//*[@id='portal-root']/descendant::ul");
     
     private static readonly By ProjectNameInputBy = By.XPath("//*[@data-testid='textbox-name']");
-    private static readonly By ProjectKeyInputBy = By.Id(":ra:");
-    private static readonly By ProjectDescriptionInputBy = By.Id(":rc:");
+    private static readonly By ProjectKeyInputBy = By.XPath("//*[@data-testid='textbox-key']");
+    private static readonly By ProjectDescriptionInputBy = By.XPath("//*[@data-testid='textbox-description']");
     private static readonly By CreateButtonBy = By.XPath("//*[@data-testid='button-save-entity']");
     private static readonly By CloseButtonBy = By.XPath("//*[@data-testid='button-close-entity']");
     private static readonly By LimitValuesErrorMessageBy = By.XPath("//div[@data-testid='ValInput_ErrorContainer']");
