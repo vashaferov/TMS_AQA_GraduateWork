@@ -1,5 +1,6 @@
 using Allure.Net.Commons;
 using GraduateWork.Helpers;
+using GraduateWork.Pages;
 using NUnit.Allure.Attributes;
 
 namespace GraduateWork.Tests.UITest;
@@ -8,13 +9,14 @@ namespace GraduateWork.Tests.UITest;
 public class SettingsTests : BaseTest
 {
     [Test]
-    [Order(1)]
     [AllureName("Обновление аватара профеля")]
     [AllureDescription("Тест на загрузку файла")]
     public void UploadAvatarTest()
     {
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+
+        DashboardSteps.NavigateToSettingsPage();
         
         Assert.That(SettingsSteps.UploadAvatar("avatar-icon.jpg"));
         AllureApi.Step("Успешно загружен файл");

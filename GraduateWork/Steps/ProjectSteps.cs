@@ -13,9 +13,6 @@ public class ProjectSteps : BaseStep
     [AllureStep("Создание нового проекта")]
     public bool CreateProject(string name)
     {
-        DashboardPage.ProjectDropdownButtonMain.Click();
-        DashboardPage.ProjectDropdownMenu.SelectText("Create a new project");
-
         DashboardPage.ProjectNameInput.SendKeys(name);
         DashboardPage.CreateButton.Click();
 
@@ -25,9 +22,6 @@ public class ProjectSteps : BaseStep
     [AllureStep("Удаление проекта")]
     public bool DeleteProject(string name)
     {
-        DashboardPage.ProjectDropdownButtonMain.Click();
-        DashboardPage.ProjectDropdownMenu.SelectText("Project settings");
-
         if(SettingsPage.CloseButton.Displayed)
             SettingsPage.CloseButton.Click();
         

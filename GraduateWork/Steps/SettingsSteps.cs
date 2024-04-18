@@ -16,9 +16,6 @@ public class SettingsSteps : BaseStep
         string assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         string filePath = Path.Combine(assemblyPath, "Resources", fileName);
 
-        DashboardPage.ProjectDropdownButtonMain.Click();
-        DashboardPage.ProjectDropdownMenu.SelectText("Project settings");
-
         SettingsPage.LeftMenuButtonАccount.Click();
         SettingsPage.DragImage.SendKeys(filePath);
 

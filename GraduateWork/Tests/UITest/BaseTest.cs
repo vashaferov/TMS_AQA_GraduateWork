@@ -17,6 +17,7 @@ public class BaseTest
     protected LoginSteps LoginSteps;
     protected ProjectSteps ProjectSteps;
     protected SettingsSteps SettingsSteps;
+    protected DashboardSteps DashboardSteps;
 
     [SetUp]
     public void Setup()
@@ -27,6 +28,7 @@ public class BaseTest
         LoginSteps = new LoginSteps(Driver);
         ProjectSteps = new ProjectSteps(Driver);
         SettingsSteps = new SettingsSteps(Driver);
+        DashboardSteps = new DashboardSteps(Driver);
     }
 
     [TearDown]

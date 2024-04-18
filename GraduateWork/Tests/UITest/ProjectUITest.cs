@@ -18,6 +18,8 @@ public class ProjectUITest : BaseTest
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
+        DashboardSteps.NavigateToCreateNewProject();
+
         Assert.That(ProjectSteps.CreateProject(projectName));
 
         Assert.That(LoginSteps.DashboardPage.DashbordProjectName.Text, Is.EqualTo(projectName));
@@ -32,6 +34,8 @@ public class ProjectUITest : BaseTest
     {
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
+        
+        DashboardSteps.NavigateToSettingsPage();
 
         Assert.That(ProjectSteps.DeleteProject(projectName));
         AllureApi.Step($"Проект \"{projectName}\" отсутствует в списке");

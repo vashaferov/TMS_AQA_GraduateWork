@@ -15,6 +15,8 @@ public class DashboardPage : BasePage
     private static readonly By CreateButtonBy = By.XPath("//*[@data-testid='button-save-entity']");
     private static readonly By CloseButtonBy = By.XPath("//*[@data-testid='button-close-entity']");
     private static readonly By DashbordProjectNameBy = By.XPath("//*[@data-testid='button-projects']/child::div/span");
+    private static readonly By LeftMenuButtonDashboardBy = By.XPath("//li[@data-testid='item-dashboard']");
+    private static readonly By DashbordPopupElementBy = By.XPath("//*[@data-testid='popup-tooltip']");
     
     public DashboardPage(IWebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
     {
@@ -42,5 +44,7 @@ public class DashboardPage : BasePage
     public Button CreateButton => new Button(_driver, CreateButtonBy);
     public Button CloseButton => new Button(_driver, CloseButtonBy);
     public UIElement DashbordProjectName => new UIElement(_driver, DashbordProjectNameBy);
+    public UIElement LeftMenuButtonDashboard => new UIElement(_driver, LeftMenuButtonDashboardBy);
+    public UIElement DashbordPopupElement => new UIElement(_driver, DashbordPopupElementBy);
 
 }
