@@ -1,6 +1,6 @@
 using System.Net;
 using Allure.Net.Commons;
-using GraduateWork.Helpers.API;
+using GraduateWork.Helpers;
 using GraduateWork.Models;
 using Newtonsoft.Json;
 using NLog;

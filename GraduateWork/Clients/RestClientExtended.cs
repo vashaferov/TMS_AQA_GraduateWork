@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using Allure.Net.Commons;
-using GraduateWork.Helpers.API;
+using GraduateWork.Helpers;
 using NLog;
 using RestSharp;
 
