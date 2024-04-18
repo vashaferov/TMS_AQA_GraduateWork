@@ -3,7 +3,7 @@ using GraduateWork.Service;
 using NLog;
 using NUnit.Allure.Core;
 
-namespace GraduateWork.Tests;
+namespace GraduateWork.Tests.APITest;
 
 [AllureNUnit]
 public class BaseApiTest

@@ -1,3 +1,4 @@
+using Allure.Net.Commons;
 using GraduateWork.Helpers;
 using NUnit.Allure.Attributes;
 using OpenQA.Selenium;
@@ -22,9 +23,9 @@ public class ProjectSteps : BaseStep
     [AllureStep("Удаление проекта")]
     public bool DeleteProject(string name)
     {
-        if(SettingsPage.CloseButton.Displayed)
+        if (SettingsPage.CloseButton.Displayed)
             SettingsPage.CloseButton.Click();
-        
+
         SettingsPage.IsPageOpened();
         SettingsPage.ProjectTable
             .GetCell("name", name, "description")
@@ -32,7 +33,7 @@ public class ProjectSteps : BaseStep
 
         SettingsPage.DeleteButton.Click();
         SettingsPage.СonfirmDeleteButton.Click();
-        
+
         SettingsPage.FilterInput.SendKeys(name);
         return SettingsPage.FilterResult.Text.Trim().Contains("Filter does not match anything.");
     }
