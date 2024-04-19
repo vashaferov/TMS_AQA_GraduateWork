@@ -4,7 +4,15 @@ on:
   push:
     branches: [ "master" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "develop" ]
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Choose target
+        type: choice
+        options:
+          - smoke
+          - regression
 
 jobs:
 
@@ -29,6 +37,16 @@ jobs:
         
     - name: Execute tests
       run: dotnet test
+        
+        # Execute Smoke tests in the solution
+    - name: Execute Smoke tests
+      if: "github.event.inputs.deployment_target == 'smoke'"
+      run: dotnet test --filter Category=Smoke
+
+        # Execute Regression tests in the solution
+    - name: Execute Regression tests
+      if: "github.event.inputs.deployment_target == 'regression'"
+      run: dotnet test --filter Category=Regression
 
     - name: Load test report history
       uses: actions/checkout@v3
