@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Allure.Net.Commons;
 using GraduateWork.Helpers;
 using NUnit.Allure.Attributes;
@@ -15,6 +16,8 @@ public class ProjectUITest : BaseTest
     [AllureDescription("Тест на создание сущности")]
     public void CreateProjectTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
@@ -32,6 +35,8 @@ public class ProjectUITest : BaseTest
     [AllureDescription("Тест на удаление сущности\nТест на отображения диалогового окна")]
     public void DeletProjectTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
@@ -47,6 +52,8 @@ public class ProjectUITest : BaseTest
     [AllureDescription("Тест на проверку поля для ввода на граничные значения")]
     public void LimitValuesTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
@@ -96,6 +103,8 @@ public class ProjectUITest : BaseTest
     [AllureDescription("Тест на ввод данных превышающих допустимые")]
     public void InvalidDataTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 

@@ -1,6 +1,6 @@
+using System.Diagnostics;
 using Allure.Net.Commons;
 using GraduateWork.Helpers;
-using GraduateWork.Pages;
 using NUnit.Allure.Attributes;
 
 namespace GraduateWork.Tests.UITest;
@@ -13,6 +13,8 @@ public class SettingsTests : BaseTest
     [AllureDescription("Тест на загрузку файла")]
     public void UploadAvatarTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 

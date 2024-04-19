@@ -54,4 +54,5 @@ public class Table
     }
 
     public bool Displayed => _uiElement.Displayed;
+    public bool Until => _uiElement.Until;
 }

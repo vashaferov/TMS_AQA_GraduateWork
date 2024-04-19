@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Text.Json;
 using Allure.Net.Commons;
 using GraduateWork.Helpers;
 using NLog;
@@ -13,9 +14,12 @@ public class RestClientExtended
 
     public RestClientExtended()
     {
+        Debug.Assert(Configurator.AppSettings.ApiKey != null);
+        
         var options = new RestClientOptions(Configurator.AppSettings.API_URL ?? throw new InvalidOperationException());
 
         _client = new RestClient(options);
+        
         _client.AddDefaultHeaders(new Dictionary<string, string> { { "X-Api-Key", Configurator.AppSettings.ApiKey } });
     }
 

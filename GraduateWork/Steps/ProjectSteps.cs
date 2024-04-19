@@ -35,6 +35,6 @@ public class ProjectSteps : BaseStep
         SettingsPage.СonfirmDeleteButton.Click();
 
         SettingsPage.FilterInput.SendKeys(name);
-        return SettingsPage.FilterResult.Text.Trim().Contains("Filter does not match anything.");
+        return SettingsPage.ProjectTable.Until && SettingsPage.FilterResult.Text.Trim().Contains("Filter does not match anything.");
     }
 }
