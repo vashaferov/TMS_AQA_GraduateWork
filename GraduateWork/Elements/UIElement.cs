@@ -133,18 +133,7 @@ public class UIElement : IWebElement
 
     public string TagName => _webElement.TagName;
 
-    public string Text
-    {
-        get
-        {
-            if (_webElement.Text != null || _webElement.Text.Equals(""))
-            {
-                return GetAttribute("innerText");
-            }
-
-            return _webElement.Text;
-        }
-    }
+    public string Text => _webElement.Text.Equals("") ? GetAttribute("innerText") : _webElement.Text;
 
     public bool Enabled => _webElement.Enabled;
     public bool Selected => _webElement.Selected;

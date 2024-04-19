@@ -21,7 +21,7 @@ public class Checkbox
         _uiElement = new UIElement(driver, webElement);
     }
 
-    public void SelectCheckBoxStatus(bool flag)
+    public void Set(bool flag)
     {
         bool trigger = _uiElement.GetAttribute("href") != "#icon-checkbox-unchecked";
         

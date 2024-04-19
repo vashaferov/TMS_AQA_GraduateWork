@@ -10,11 +10,6 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
 {
     private readonly WebDriverWait _wait = new(driver, timeout);
 
-    public IWebElement WaitForVisibilityLocatedBy(By locator)
-    {
-        return _wait.Until(ExpectedConditions.ElementIsVisible(locator));
-    }
-
     public ReadOnlyCollection<IWebElement> WaitForAllVisibleElementsLocatedBy(By locator)
     {
         return _wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(locator));
@@ -28,11 +23,6 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
     public IWebElement WaitForExists(By locator)
     {
         return _wait.Until(ExpectedConditions.ElementExists(locator));
-    }
-
-    public bool WaitForElementInvisible(By locator)
-    {
-        return _wait.Until(ExpectedConditions.InvisibilityOfElementLocated(locator));
     }
 
     public bool WaitForElementInvisible(IWebElement webElement)
@@ -53,16 +43,6 @@ public class WaitsHelper(IWebDriver driver, TimeSpan timeout)
         {
             throw new WebDriverTimeoutException("Элемент не стал невидимым в течение заданного времени");
         }
-    }
-
-    public bool WaitForVisibility(IWebElement element)
-    {
-        return _wait.Until(_ => element.Displayed);
-    }
-
-    public UIElement WaitChildElement(IWebElement webElement, By by)
-    {
-        return new UIElement(driver, _wait.Until(_ => webElement.FindElement(by)));
     }
 
     public IWebElement FluentWaitForElement(By locator)
