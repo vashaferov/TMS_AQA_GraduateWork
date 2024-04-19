@@ -16,6 +16,7 @@ public class Button
         _uiElement = new UIElement(driver, webElement);
     }
 
+    public string GetAttribute(string attributeName) => _uiElement.GetAttribute(attributeName);
     public void Click() => _uiElement.Click();
     public string Trxt => _uiElement.Text;
     public void Submit() => _uiElement.Submit();

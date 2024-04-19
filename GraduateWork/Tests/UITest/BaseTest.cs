@@ -16,17 +16,21 @@ public class BaseTest
 
     protected LoginSteps LoginSteps;
     protected ProjectSteps ProjectSteps;
+    protected SettingsSteps SettingsSteps;
+    protected DashboardSteps DashboardSteps;
 
     [SetUp]
     public void Setup()
     {
         Driver = new Browser().Driver;
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
-        
+
         LoginSteps = new LoginSteps(Driver);
         ProjectSteps = new ProjectSteps(Driver);
+        SettingsSteps = new SettingsSteps(Driver);
+        DashboardSteps = new DashboardSteps(Driver);
     }
-    
+
     [TearDown]
     public void TearDown()
     {
@@ -45,7 +49,7 @@ public class BaseTest
             Console.WriteLine(e);
             throw;
         }
-        
+
         Driver.Quit();
     }
 }

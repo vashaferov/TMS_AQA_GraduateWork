@@ -40,6 +40,10 @@
       <Content Include="allureConfig.json">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <None Remove="Resource\avatar-icon.jpg" />
+      <Content Include="Resources\avatar-icon.jpg">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

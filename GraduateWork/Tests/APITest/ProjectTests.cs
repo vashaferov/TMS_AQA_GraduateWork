@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 using NLog;
 using NUnit.Allure.Attributes;
 
-namespace GraduateWork.Tests;
+namespace GraduateWork.Tests.APITest;
 
 [AllureSuite("API Project Tests")]
 public class ProjectTests : BaseApiTest
