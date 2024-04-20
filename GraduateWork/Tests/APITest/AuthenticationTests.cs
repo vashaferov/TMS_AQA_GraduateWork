@@ -15,6 +15,7 @@ public class AuthenticationTests : BaseApiTest
 
     [Test]
     [Category("NFE")]
+    [Category("Smoke")]
     public void GetAuthenticationInfoTest()
     {
         AllureApi.Step("GetAuthenticationInfoTest запущен.");

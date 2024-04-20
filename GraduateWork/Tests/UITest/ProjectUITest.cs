@@ -14,6 +14,8 @@ public class ProjectUITest : BaseTest
     [Order(1)]
     [AllureName("Создание новго проекта")]
     [AllureDescription("Тест на создание сущности")]
+    [Category("Smoke")]
+    [Category("Regression")]
     public void CreateProjectTest()
     {
         string projectName = $"Test {DateTime.Now}";
@@ -35,6 +37,8 @@ public class ProjectUITest : BaseTest
     [Order(2)]
     [AllureName("Удаление проекта")]
     [AllureDescription("Тест на удаление сущности\nТест на отображения диалогового окна")]
+    [Category("Smoke")]
+    [Category("Regression")]
     public void DeletProjectTest()
     {
         Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
@@ -54,6 +58,7 @@ public class ProjectUITest : BaseTest
     [Order(3)]
     [AllureName("Граничные значения в имени проекта")]
     [AllureDescription("Тест на проверку поля для ввода на граничные значения")]
+    [Category("Regression")]
     public void LimitValuesTest()
     {
         Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
@@ -105,6 +110,7 @@ public class ProjectUITest : BaseTest
     [Order(4)]
     [AllureName("Недопустимые данные в ключе проекта")]
     [AllureDescription("Тест на ввод данных превышающих допустимые")]
+    [Category("Regression")]
     public void InvalidDataTest()
     {
         Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);

@@ -32,6 +32,7 @@ public class TestPlanTests : BaseApiTest
 
     [Test]
     [Order(1)]
+    [Category("Smoke")]
     public void CreateTestPlaneApiTest()
     {
         _logger.Info("CreateTestPlaneApiTest запущен.");
@@ -64,6 +65,7 @@ public class TestPlanTests : BaseApiTest
 
     [Test]
     [Order(2), Category("NFE")]
+    [Category("Regression")]
     public void GetTestPlaneApiTest()
     {
         _logger.Info("GetTestPlaneApiTest запущен.");
@@ -84,6 +86,7 @@ public class TestPlanTests : BaseApiTest
 
     [Test]
     [Order(3)]
+    [Category("Smoke")]
     public void DeleteTestPlaneApiTest()
     {
         _logger.Info("DeleteTestPlaneApiTest запущен.");
@@ -96,6 +99,7 @@ public class TestPlanTests : BaseApiTest
 
     [Test]
     [Order(4), Category("AFE")]
+    [Category("Regression")]
     public void GetTestPlaneInvalidIdApiTest()
     {
         _logger.Info("GetTestPlaneInvalidIdApiTest запущен.");
