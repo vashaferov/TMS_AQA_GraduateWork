@@ -44,6 +44,10 @@ public class CreatTD
 
     public void ClearTD()
     {
-        Directory.Delete(Path.Combine(assemblyPath, "Resources", "TD"), true);
+        DirectoryInfo dir = new DirectoryInfo(Path.Combine(assemblyPath, "Resources", "TD"));
+        foreach (FileInfo file in dir.GetFiles())
+        {
+            file.Delete();
+        }
     }
 }

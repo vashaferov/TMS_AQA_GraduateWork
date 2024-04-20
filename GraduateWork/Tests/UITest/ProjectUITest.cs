@@ -124,4 +124,10 @@ public class ProjectUITest : BaseTest
         });
         AllureApi.Step("При вводе кириллицы ожидаемо получена ошибка\nКнопка \"Create\" неактивна");
     }
+
+    [TearDown]
+    public void TearDown()
+    {
+        CreatTD.ClearTD();
+    }
 }
