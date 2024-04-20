@@ -14,7 +14,7 @@ on:
           - smoke
           - regression
   schedule:
-    - cron: '40 7 * * *'
+    - cron: '55 7 * * *'
 
 jobs:
 
@@ -37,18 +37,19 @@ jobs:
       with:
         dotnet-version: 8.0.x
         
-    - name: Execute tests
-      run: dotnet test
-        
         # Execute Smoke tests in the solution
     - name: Execute Smoke tests
-      if: "github.event.inputs.deployment_target == 'smoke' || github.event.schedule == '30 7 * * *'"
+      if: "github.event.inputs.deployment_target == 'smoke' || github.event.schedule == '55 7 * * *'"
       run: dotnet test --filter Category=Smoke
 
         # Execute Regression tests in the solution
     - name: Execute Regression tests
       if: "github.event.inputs.deployment_target == 'regression'"
       run: dotnet test --filter Category=Regression
+      
+    - name: Execute tests
+      if: "github.event.inputs.deployment_target != 'regression' && github.event.inputs.deployment_target != 'smoke'"
+      run: dotnet test
 
     - name: Load test report history
       uses: actions/checkout@v3
