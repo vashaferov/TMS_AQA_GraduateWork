@@ -14,7 +14,7 @@ on:
           - smoke
           - regression
   schedule:
-    - cron: '30 8 * * *'
+    - cron: '40 7 * * *'
 
 jobs:
 
