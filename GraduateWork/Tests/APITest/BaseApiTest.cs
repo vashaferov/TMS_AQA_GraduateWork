@@ -27,5 +27,6 @@ public class BaseApiTest
     {
         ProjectService.Dispose();
         TestPlaneServices.Dispose();
+        AuthenticationServices.Dispose();
     }
 }
