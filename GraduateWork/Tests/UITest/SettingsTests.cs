@@ -11,6 +11,7 @@ public class SettingsTests : BaseTest
     [Test]
     [AllureName("Обновление аватара профеля")]
     [AllureDescription("Тест на загрузку файла")]
+    [Category("Regression")]
     public void UploadAvatarTest()
     {
         Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);

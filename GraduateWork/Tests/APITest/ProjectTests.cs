@@ -16,6 +16,8 @@ public class ProjectTests : BaseApiTest
 
     [Test]
     [Order(1)]
+    [Category("Smoke")]
+    [Category("Regression")]
     public void CreateProjectApiTest()
     {
         AllureApi.Step("CreateProjectApiTest запущен.");
@@ -50,6 +52,7 @@ public class ProjectTests : BaseApiTest
     
     [Test]
     [Order(2), Category("NFE")]
+    [Category("Regression")]
     public void GetProjectApiTest()
     {
         AllureApi.Step("GetProjectApiTest запущен.");
@@ -75,6 +78,7 @@ public class ProjectTests : BaseApiTest
     
     [Test]
     [Order(3)]
+    [Category("Regression")]
     public void UpdateProjectApiTest()
     {
         AllureApi.Step("UpdateProjectApiTest запущен.");
@@ -98,6 +102,8 @@ public class ProjectTests : BaseApiTest
 
     [Test]
     [Order(4)]
+    [Category("Smoke")]
+    [Category("Regression")]
     public void DeleteProjectApiTest()
     {
         AllureApi.Step("DeleteProjectApiTest запущен.");
@@ -111,6 +117,7 @@ public class ProjectTests : BaseApiTest
     
     [Test]
     [Category("AFE")]
+    [Category("Regression")]
     public void GetProjectInvalidIdApiTest()
     {
         AllureApi.Step("GetProjectApiTest запущен.");

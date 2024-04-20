@@ -10,6 +10,7 @@ public class LoginTest : BaseTest
 {
     [Test]
     [AllureName("Вход в систему с передачей верных параметров")]
+    [Category("Smoke")]
     public void CorrectLoginTest()
     {
         Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
@@ -25,6 +26,7 @@ public class LoginTest : BaseTest
     [Test]
     [AllureName("Вход в систему с передачей неверных параметров")]
     [AllureDescription("Тест на использование некорректных данных")]
+    [Category("Regression")]
     public void IncorrectLoginTest()
     {
         Debug.Assert(Configurator.AppSettings.Username != null);

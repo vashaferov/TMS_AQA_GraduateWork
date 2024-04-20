@@ -11,6 +11,7 @@ public class DashboardTest : BaseTest
     [Test]
     [AllureName("Проверка Popup элемента")]
     [AllureDescription("Тест на проверку всплывающего сообщения")]
+    [Category("Regression")]
     public void PopupTest()
     {
         Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
