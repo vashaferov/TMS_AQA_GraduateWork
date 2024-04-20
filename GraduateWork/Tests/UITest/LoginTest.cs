@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Allure.Net.Commons;
 using GraduateWork.Helpers;
 using NUnit.Allure.Attributes;
@@ -11,6 +12,8 @@ public class LoginTest : BaseTest
     [AllureName("Вход в систему с передачей верных параметров")]
     public void CorrectLoginTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
         
@@ -24,6 +27,8 @@ public class LoginTest : BaseTest
     [AllureDescription("Тест на использование некорректных данных")]
     public void IncorrectLoginTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null);
+        
         string errorMessage = "Either your email address or your password is wrong. Please try again or";
 
         LoginSteps.NavigateToLoginPage();

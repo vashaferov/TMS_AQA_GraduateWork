@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Allure.Net.Commons;
 using GraduateWork.Helpers;
 using NUnit.Allure.Attributes;
@@ -12,6 +13,8 @@ public class DashboardTest : BaseTest
     [AllureDescription("Тест на проверку всплывающего сообщения")]
     public void PopupTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps
             .SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password)

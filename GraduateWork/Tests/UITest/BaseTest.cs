@@ -1,4 +1,5 @@
 using Allure.Net.Commons;
+using GraduateWork.Clients;
 using GraduateWork.Core;
 using GraduateWork.Helpers;
 using GraduateWork.Steps;
@@ -13,6 +14,7 @@ public class BaseTest
 {
     protected IWebDriver Driver { get; private set; }
     protected WaitsHelper WaitsHelper { get; private set; }
+    protected CreatTD CreatTD { get; private set; }
 
     protected LoginSteps LoginSteps;
     protected ProjectSteps ProjectSteps;
@@ -22,8 +24,10 @@ public class BaseTest
     [SetUp]
     public void Setup()
     {
+        var restClient = new RestClientExtended();
         Driver = new Browser().Driver;
         WaitsHelper = new WaitsHelper(Driver, TimeSpan.FromSeconds(Configurator.WaitsTimeout));
+        CreatTD = new CreatTD(restClient);
 
         LoginSteps = new LoginSteps(Driver);
         ProjectSteps = new ProjectSteps(Driver);
@@ -51,5 +55,6 @@ public class BaseTest
         }
 
         Driver.Quit();
+        CreatTD.ClearTD();
     }
 }

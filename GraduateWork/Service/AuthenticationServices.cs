@@ -19,4 +19,10 @@ public class AuthenticationServices : IAuthenticationServices
 
         return _client.ExecuteAsync(request);
     }
+    
+    public void Dispose()
+    {
+        _client?.Dispose();
+        GC.SuppressFinalize(this);
+    }
 }

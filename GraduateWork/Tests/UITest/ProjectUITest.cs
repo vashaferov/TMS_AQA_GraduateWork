@@ -1,5 +1,8 @@
+using System.Diagnostics;
 using Allure.Net.Commons;
 using GraduateWork.Helpers;
+using GraduateWork.Models;
+using Newtonsoft.Json;
 using NUnit.Allure.Attributes;
 
 namespace GraduateWork.Tests.UITest;
@@ -7,14 +10,16 @@ namespace GraduateWork.Tests.UITest;
 [AllureSuite("UI Project Tests")]
 public class ProjectUITest : BaseTest
 {
-    string projectName = "Test name";
-
     [Test]
     [Order(1)]
     [AllureName("Создание новго проекта")]
     [AllureDescription("Тест на создание сущности")]
     public void CreateProjectTest()
     {
+        string projectName = $"Test {DateTime.Now}";
+        
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
@@ -32,13 +37,17 @@ public class ProjectUITest : BaseTest
     [AllureDescription("Тест на удаление сущности\nТест на отображения диалогового окна")]
     public void DeletProjectTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
+        var jsonTD = JsonConvert.DeserializeObject<Project>(File.ReadAllText(CreatTD.CreatProject()));
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
         DashboardSteps.NavigateToSettingsPage();
 
-        Assert.That(ProjectSteps.DeleteProject(projectName));
-        AllureApi.Step($"Проект \"{projectName}\" отсутствует в списке");
+        Assert.That(ProjectSteps.DeleteProject(jsonTD.Name));
+        AllureApi.Step($"Проект \"{jsonTD.Name}\" отсутствует в списке");
     }
 
     [Test]
@@ -47,6 +56,8 @@ public class ProjectUITest : BaseTest
     [AllureDescription("Тест на проверку поля для ввода на граничные значения")]
     public void LimitValuesTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 
@@ -96,6 +107,8 @@ public class ProjectUITest : BaseTest
     [AllureDescription("Тест на ввод данных превышающих допустимые")]
     public void InvalidDataTest()
     {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.Password != null);
+        
         LoginSteps.NavigateToLoginPage();
         LoginSteps.SuccessfulLogin(Configurator.AppSettings.Username, Configurator.AppSettings.Password);
 

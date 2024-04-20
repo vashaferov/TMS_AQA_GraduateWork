@@ -24,7 +24,7 @@ public class SettingsPage : BasePage
     private static readonly By ProjectTableBy = By.XPath("//table[@data-testid='table-projects']");
     private static readonly By ProjectTableBodyBy = By.XPath("//table[@data-testid='table-projects']/tbody/tr[1]");
     private static readonly By FilterInputBy = By.XPath("//input[@data-testid='textbox-filter']");
-    private static readonly By FilterResultBy = By.XPath("//div[@class='sc-jTQCzO iSbSxx sc-jSUdEz fJAhYQ']");
+    private static readonly By FilterResultBy = By.XPath("//div[@data-testid='toolbar-table']/following-sibling::div");
 
     private static readonly By DragImageBy = By.XPath("//div[@data-testid='section-drop-area']/input");
     private static readonly By UploadAvatarButtonBy = By.XPath("//div[@data-testid='section-drop-area']/div/button");
