@@ -34,7 +34,7 @@ public class CreatTD
         var json = JsonConvert.SerializeObject(_client.ExecuteAsync<Project>(request).Result, Formatting.Indented);
         
         
-        string filePath = Path.Combine(assemblyPath, "Resources", "TD", $"Project_{DateTime.Now.ToFileTime()}.json");
+        string filePath = Path.Combine(assemblyPath, "Resources", $"Project_{DateTime.Now.ToFileTime()}_TD.json");
         
         File.WriteAllText(filePath, json);
         AllureApi.AddAttachment("Project_TD.json", "json", filePath);
@@ -44,10 +44,11 @@ public class CreatTD
 
     public void ClearTD()
     {
-        DirectoryInfo dir = new DirectoryInfo(Path.Combine(assemblyPath, "Resources", "TD"));
+        DirectoryInfo dir = new DirectoryInfo(Path.Combine(assemblyPath, "Resources"));
         foreach (FileInfo file in dir.GetFiles())
         {
-            file.Delete();
+            if(file.Name.Contains("_TD"))
+                file.Delete();
         }
     }
 }
