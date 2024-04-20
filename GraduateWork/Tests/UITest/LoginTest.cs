@@ -40,4 +40,21 @@ public class LoginTest : BaseTest
         
         AllureApi.Step($"Получена нужная ошибка:\n{errorMessage}");
     }
+    
+    [Test]
+    [AllureName("Вход в систему с передачей ApiKeyAuth")]
+    [AllureDescription("Тест воспроизводящий любой дефект")]
+    [AllureIssue("test")]
+    [Category("Regression")]
+    public void ApiKeyLoginTest()
+    {
+        Debug.Assert(Configurator.AppSettings.Username != null && Configurator.AppSettings.ApiKey != null);
+
+        LoginSteps.NavigateToLoginPage();
+        LoginSteps.IncorrectLogin(Configurator.AppSettings.Username, Configurator.AppSettings.ApiKey);
+        
+        Assert.That(LoginSteps.DashboardPage.IsPageOpened);
+        
+        AllureApi.Step($"Страница дашборда открыта");
+    }
 }
