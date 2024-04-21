@@ -1,0 +1,10 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Apr 21 14:07:57 GMT 2024","Sun Apr 21 14:07:57 GMT 2024","164","","API TestPlan Tests","","TestPlanTests","CreateTestPlaneApiTest","CreateTestPlaneApiTest",""
+"passed","Sun Apr 21 14:07:57 GMT 2024","Sun Apr 21 14:07:57 GMT 2024","169","","API Project Tests","","ProjectTests","DeleteProjectApiTest","DeleteProjectApiTest",""
+"passed","Sun Apr 21 14:08:10 GMT 2024","Sun Apr 21 14:08:18 GMT 2024","8312","","UI Project Tests","","ProjectUITest","DeletProjectTest","Удаление проекта","Тест на удаление сущности
+Тест на отображения диалогового окна"
+"passed","Sun Apr 21 14:07:56 GMT 2024","Sun Apr 21 14:07:57 GMT 2024","416","","API Project Tests","","ProjectTests","CreateProjectApiTest","CreateProjectApiTest",""
+"passed","Sun Apr 21 14:07:55 GMT 2024","Sun Apr 21 14:07:56 GMT 2024","706","","API Authentication Tests","","AuthenticationTests","GetAuthenticationInfoTest","GetAuthenticationInfoTest",""
+"passed","Sun Apr 21 14:08:04 GMT 2024","Sun Apr 21 14:08:10 GMT 2024","5993","","UI Project Tests","","ProjectUITest","CreateProjectTest","Создание новго проекта","Тест на создание сущности"
+"passed","Sun Apr 21 14:07:58 GMT 2024","Sun Apr 21 14:08:04 GMT 2024","6214","","UI Login Tests","","LoginTest","CorrectLoginTest","Вход в систему с передачей верных параметров",""
+"passed","Sun Apr 21 14:07:57 GMT 2024","Sun Apr 21 14:07:57 GMT 2024","145","","API TestPlan Tests","","TestPlanTests","DeleteTestPlaneApiTest","DeleteTestPlaneApiTest",""
