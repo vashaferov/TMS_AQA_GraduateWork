@@ -33,6 +33,7 @@ public class TestPlanTests : BaseApiTest
     [Test]
     [Order(1)]
     [Category("Smoke")]
+    [Category("Regression")]
     public void CreateTestPlaneApiTest()
     {
         _logger.Info("CreateTestPlaneApiTest запущен.");

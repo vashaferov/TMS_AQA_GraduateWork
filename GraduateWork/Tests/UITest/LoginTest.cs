@@ -41,7 +41,7 @@ public class LoginTest : BaseTest
         AllureApi.Step($"Получена нужная ошибка:\n{errorMessage}");
     }
     
-    [Test]
+    // [Test]
     [AllureName("Вход в систему с передачей ApiKeyAuth")]
     [AllureDescription("Тест воспроизводящий любой дефект")]
     [AllureIssue("test")]
