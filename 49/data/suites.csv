@@ -1,0 +1,10 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun May 12 11:28:11 GMT 2024","Sun May 12 11:28:12 GMT 2024","165","","API TestPlan Tests","","TestPlanTests","CreateTestPlaneApiTest","CreateTestPlaneApiTest",""
+"passed","Sun May 12 11:28:10 GMT 2024","Sun May 12 11:28:10 GMT 2024","791","","API Authentication Tests","","AuthenticationTests","GetAuthenticationInfoTest","GetAuthenticationInfoTest",""
+"passed","Sun May 12 11:28:12 GMT 2024","Sun May 12 11:28:18 GMT 2024","6347","","UI Login Tests","","LoginTest","CorrectLoginTest","Вход в систему с передачей верных параметров",""
+"passed","Sun May 12 11:28:12 GMT 2024","Sun May 12 11:28:12 GMT 2024","132","","API TestPlan Tests","","TestPlanTests","DeleteTestPlaneApiTest","DeleteTestPlaneApiTest",""
+"passed","Sun May 12 11:28:11 GMT 2024","Sun May 12 11:28:11 GMT 2024","147","","API Project Tests","","ProjectTests","DeleteProjectApiTest","DeleteProjectApiTest",""
+"passed","Sun May 12 11:28:10 GMT 2024","Sun May 12 11:28:11 GMT 2024","462","","API Project Tests","","ProjectTests","CreateProjectApiTest","CreateProjectApiTest",""
+"passed","Sun May 12 11:28:18 GMT 2024","Sun May 12 11:28:25 GMT 2024","6374","","UI Project Tests","","ProjectUITest","CreateProjectTest","Создание новго проекта","Тест на создание сущности"
+"failed","Sun May 12 11:28:25 GMT 2024","Sun May 12 11:28:31 GMT 2024","6736","","UI Project Tests","","ProjectUITest","DeletProjectTest","Удаление проекта","Тест на удаление сущности
+Тест на отображения диалогового окна"
