@@ -1,0 +1,2 @@
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at GraduateWork.Tests.UITest.BaseTest.TearDown() in /home/runner/work/TMS_AQA_GraduateWork/TMS_AQA_GraduateWork/GraduateWork/Tests/UITest/BaseTest.cs:line 45
