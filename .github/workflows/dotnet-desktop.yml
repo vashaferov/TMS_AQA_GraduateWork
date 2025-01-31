@@ -13,8 +13,8 @@ on:
         options:
           - smoke
           - regression
-  schedule:
-    - cron: '20 11 * * *'
+#  schedule:
+  #  - cron: '20 11 * * *'
 
 jobs:
 
